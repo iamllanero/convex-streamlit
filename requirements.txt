@@ -1,0 +1,3 @@
+millify==0.1.1
+pandas=1.5.1
+streamlit=1.17.0
