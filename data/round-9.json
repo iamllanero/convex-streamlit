@@ -1,0 +1,73 @@
+{
+    "round": 9,
+    "per_vlcvx": "$0.58963",
+    "deadline": "1/10/2022",
+    "total": "$15.39m",
+    "bribes": {
+        "rai": {
+            "per_vlcvx": "$0.64169",
+            "amount": "$268.25k",
+            "address": ""
+        },
+        "3eur": {
+            "per_vlcvx": "$0.60944",
+            "amount": "$401.08k",
+            "address": ""
+        },
+        "ust-wormhole": {
+            "per_vlcvx": "$0.60359",
+            "amount": "$2.33m",
+            "address": ""
+        },
+        "ousd": {
+            "per_vlcvx": "$0.60269",
+            "amount": "$714.31k",
+            "address": ""
+        },
+        "musd": {
+            "per_vlcvx": "$0.59849",
+            "amount": "$65.26k",
+            "address": ""
+        },
+        "aleth": {
+            "per_vlcvx": "$0.59744",
+            "amount": "$441.88k",
+            "address": ""
+        },
+        "frax": {
+            "per_vlcvx": "$0.59402",
+            "amount": "$6.59m",
+            "address": ""
+        },
+        "alusd": {
+            "per_vlcvx": "$0.59398",
+            "amount": "$519.85k",
+            "address": ""
+        },
+        "usdp": {
+            "per_vlcvx": "$0.59352",
+            "amount": "$62.47k",
+            "address": ""
+        },
+        "d3pool": {
+            "per_vlcvx": "$0.59067",
+            "amount": "$171.58k",
+            "address": ""
+        },
+        "mim-ust": {
+            "per_vlcvx": "$0.58732",
+            "amount": "$1.14m",
+            "address": ""
+        },
+        "cvxeth": {
+            "per_vlcvx": "$0.58640",
+            "amount": "$1.02m",
+            "address": ""
+        },
+        "cvxcrv": {
+            "per_vlcvx": "$0.53967",
+            "amount": "$1.66m",
+            "address": ""
+        }
+    }
+}

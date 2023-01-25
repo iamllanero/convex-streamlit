@@ -1,0 +1,83 @@
+{
+    "round": 18,
+    "per_vlcvx": "$0.13479",
+    "deadline": "5/16/2022",
+    "total": "$5.72m",
+    "bribes": {
+        "fantom-f-g3CRV-gauge": {
+            "per_vlcvx": "$0.14257",
+            "amount": "$128.18k",
+            "address": ""
+        },
+        "dola": {
+            "per_vlcvx": "$0.14240",
+            "amount": "$71.47k",
+            "address": ""
+        },
+        "f-fei": {
+            "per_vlcvx": "$0.14138",
+            "amount": "$116.81k",
+            "address": ""
+        },
+        "rai": {
+            "per_vlcvx": "$0.14108",
+            "amount": "$64.60k",
+            "address": ""
+        },
+        "alusd": {
+            "per_vlcvx": "$0.13905",
+            "amount": "$128.13k",
+            "address": ""
+        },
+        "d3pool": {
+            "per_vlcvx": "$0.13847",
+            "amount": "$164.86k",
+            "address": ""
+        },
+        "aleth": {
+            "per_vlcvx": "$0.13847",
+            "amount": "$128.13k",
+            "address": ""
+        },
+        "optimism-f-sUSD3CRV": {
+            "per_vlcvx": "$0.13779",
+            "amount": "$36.45k",
+            "address": ""
+        },
+        "frax": {
+            "per_vlcvx": "$0.13759",
+            "amount": "$2.81m",
+            "address": ""
+        },
+        "steth": {
+            "per_vlcvx": "$0.13755",
+            "amount": "$688.32k",
+            "address": ""
+        },
+        "f-stgusdc": {
+            "per_vlcvx": "$0.13716",
+            "amount": "$307.99k",
+            "address": ""
+        },
+        "cvxeth": {
+            "per_vlcvx": "$0.13569",
+            "amount": "$158.96k",
+            "address": ""
+        },
+        "cvxfxs": {
+            "per_vlcvx": "$0.13542",
+            "amount": "$254.33k",
+            "address": ""
+        },
+        "fpifrax": {
+            "per_vlcvx": "$0.11898",
+            "amount": "$283.57k",
+            "address": ""
+        },
+        "cvxcrv": {
+            "per_vlcvx": "$0.11320",
+            "amount": "$381.50k",
+            "address": ""
+        }
+    }
+}

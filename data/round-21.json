@@ -1,0 +1,83 @@
+{
+    "round": 21,
+    "per_vlcvx": "$0.05940",
+    "deadline": "6/27/2022",
+    "total": "$2.63m",
+    "bribes": {
+        "f-stgusdc": {
+            "per_vlcvx": "$0.06286",
+            "amount": "$46.97k",
+            "address": ""
+        },
+        "rai": {
+            "per_vlcvx": "$0.06284",
+            "amount": "$25.06k",
+            "address": ""
+        },
+        "xdai-f-x3CRV-gauge": {
+            "per_vlcvx": "$0.06272",
+            "amount": "$23.54k",
+            "address": ""
+        },
+        "fpifrax": {
+            "per_vlcvx": "$0.06231",
+            "amount": "$232.90k",
+            "address": ""
+        },
+        "2pool-frax": {
+            "per_vlcvx": "$0.06201",
+            "amount": "$285.69k",
+            "address": ""
+        },
+        "dola": {
+            "per_vlcvx": "$0.06190",
+            "amount": "$99.21k",
+            "address": ""
+        },
+        "cvxfxs": {
+            "per_vlcvx": "$0.06185",
+            "amount": "$147.87k",
+            "address": ""
+        },
+        "frax": {
+            "per_vlcvx": "$0.06155",
+            "amount": "$1.01m",
+            "address": ""
+        },
+        "steth": {
+            "per_vlcvx": "$0.06150",
+            "amount": "$69.10k",
+            "address": ""
+        },
+        "cvxeth": {
+            "per_vlcvx": "$0.06149",
+            "amount": "$215.64k",
+            "address": ""
+        },
+        "alusd": {
+            "per_vlcvx": "$0.06138",
+            "amount": "$97.55k",
+            "address": ""
+        },
+        "aleth": {
+            "per_vlcvx": "$0.06109",
+            "amount": "$97.55k",
+            "address": ""
+        },
+        "cvxcrv": {
+            "per_vlcvx": "$0.04979",
+            "amount": "$197.16k",
+            "address": ""
+        },
+        "f-pusd": {
+            "per_vlcvx": "$0.04782",
+            "amount": "$49.44k",
+            "address": ""
+        },
+        "mim": {
+            "per_vlcvx": "$0.02481",
+            "amount": "$27.89k",
+            "address": ""
+        }
+    }
+}

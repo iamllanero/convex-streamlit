@@ -1,0 +1,93 @@
+{
+    "round": 23,
+    "per_vlcvx": "$0.06832",
+    "deadline": "7/25/2022",
+    "total": "$3.08m",
+    "bribes": {
+        "f-pusd": {
+            "per_vlcvx": "$0.07226",
+            "amount": "$32.77k",
+            "address": ""
+        },
+        "rai": {
+            "per_vlcvx": "$0.07221",
+            "amount": "$16.62k",
+            "address": ""
+        },
+        "xdai-f-x3CRV-gauge": {
+            "per_vlcvx": "$0.07213",
+            "amount": "$39.76k",
+            "address": ""
+        },
+        "dola": {
+            "per_vlcvx": "$0.07093",
+            "amount": "$108.74k",
+            "address": ""
+        },
+        "tusd": {
+            "per_vlcvx": "$0.07071",
+            "amount": "$76.84k",
+            "address": ""
+        },
+        "2pool-frax": {
+            "per_vlcvx": "$0.07070",
+            "amount": "$852.33k",
+            "address": ""
+        },
+        "cvxeth": {
+            "per_vlcvx": "$0.07041",
+            "amount": "$219.94k",
+            "address": ""
+        },
+        "cvxfxs": {
+            "per_vlcvx": "$0.07039",
+            "amount": "$219.94k",
+            "address": ""
+        },
+        "frax": {
+            "per_vlcvx": "$0.06990",
+            "amount": "$911.99k",
+            "address": ""
+        },
+        "aleth": {
+            "per_vlcvx": "$0.06974",
+            "amount": "$95.60k",
+            "address": ""
+        },
+        "alusd": {
+            "per_vlcvx": "$0.06969",
+            "amount": "$95.60k",
+            "address": ""
+        },
+        "fpifrax": {
+            "per_vlcvx": "$0.06965",
+            "amount": "$92.12k",
+            "address": ""
+        },
+        "cvxcrv": {
+            "per_vlcvx": "$0.05828",
+            "amount": "$293.25k",
+            "address": ""
+        },
+        "f-fraxbpbusd": {
+            "per_vlcvx": "$0.05541",
+            "amount": "$3.21k",
+            "address": ""
+        },
+        "f-fraxbpsusd": {
+            "per_vlcvx": "$0.04089",
+            "amount": "$8.96k",
+            "address": ""
+        },
+        "f-fraxbpalusd": {
+            "per_vlcvx": "$0.03607",
+            "amount": "$11.95k",
+            "address": ""
+        },
+        "f-fraxbplusd": {
+            "per_vlcvx": "$0.00897",
+            "amount": "$1.71k",
+            "address": ""
+        }
+    }
+}

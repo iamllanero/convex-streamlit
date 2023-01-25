@@ -1,0 +1,108 @@
+{
+    "round": 25,
+    "per_vlcvx": "$0.06436",
+    "deadline": "8/22/2022",
+    "total": "$2.93m",
+    "bribes": {
+        "f-fraxbpape": {
+            "per_vlcvx": "$0.06763",
+            "amount": "$76.84k",
+            "address": ""
+        },
+        "xdai-f-x3CRV-gauge": {
+            "per_vlcvx": "$0.06756",
+            "amount": "$47.58k",
+            "address": ""
+        },
+        "dola": {
+            "per_vlcvx": "$0.06705",
+            "amount": "$85.64k",
+            "address": ""
+        },
+        "fpifrax": {
+            "per_vlcvx": "$0.06640",
+            "amount": "$293.72k",
+            "address": ""
+        },
+        "optimism-f-sUSD3CRV": {
+            "per_vlcvx": "$0.06600",
+            "amount": "$34.57k",
+            "address": ""
+        },
+        "f-usdd3crv": {
+            "per_vlcvx": "$0.06595",
+            "amount": "$64.34k",
+            "address": ""
+        },
+        "cvxeth": {
+            "per_vlcvx": "$0.06593",
+            "amount": "$182.61k",
+            "address": ""
+        },
+        "aleth": {
+            "per_vlcvx": "$0.06592",
+            "amount": "$105.49k",
+            "address": ""
+        },
+        "alusd": {
+            "per_vlcvx": "$0.06590",
+            "amount": "$105.49k",
+            "address": ""
+        },
+        "2pool-frax": {
+            "per_vlcvx": "$0.06585",
+            "amount": "$686.41k",
+            "address": ""
+        },
+        "cvxfxs": {
+            "per_vlcvx": "$0.06561",
+            "amount": "$182.61k",
+            "address": ""
+        },
+        "frax": {
+            "per_vlcvx": "$0.06554",
+            "amount": "$588.35k",
+            "address": ""
+        },
+        "f-fraxbpsusd": {
+            "per_vlcvx": "$0.06539",
+            "amount": "$9.81k",
+            "address": ""
+        },
+        "f-fraxbpalusd": {
+            "per_vlcvx": "$0.06538",
+            "amount": "$23.63k",
+            "address": ""
+        },
+        "f-fraxbpgusd": {
+            "per_vlcvx": "$0.06509",
+            "amount": "$12.67k",
+            "address": ""
+        },
+        "f-fraxbpusdd": {
+            "per_vlcvx": "$0.06505",
+            "amount": "$10.56k",
+            "address": ""
+        },
+        "f-fraxbpbusd": {
+            "per_vlcvx": "$0.06496",
+            "amount": "$12.67k",
+            "address": ""
+        },
+        "tusd": {
+            "per_vlcvx": "$0.06118",
+            "amount": "$107.74k",
+            "address": ""
+        },
+        "f-pusd": {
+            "per_vlcvx": "$0.05648",
+            "amount": "$52.50k",
+            "address": ""
+        },
+        "cvxcrv": {
+            "per_vlcvx": "$0.05385",
+            "amount": "$243.49k",
+            "address": ""
+        }
+    }
+}

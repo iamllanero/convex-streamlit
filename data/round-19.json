@@ -1,0 +1,78 @@
+{
+    "round": 19,
+    "per_vlcvx": "$0.12887",
+    "deadline": "5/30/2022",
+    "total": "$5.69m",
+    "bribes": {
+        "steth": {
+            "per_vlcvx": "$0.13350",
+            "amount": "$582.64k",
+            "address": ""
+        },
+        "d3pool": {
+            "per_vlcvx": "$0.13338",
+            "amount": "$95.77k",
+            "address": ""
+        },
+        "aleth": {
+            "per_vlcvx": "$0.13296",
+            "amount": "$132.46k",
+            "address": ""
+        },
+        "f-pusd": {
+            "per_vlcvx": "$0.13153",
+            "amount": "$135.36k",
+            "address": ""
+        },
+        "usdn": {
+            "per_vlcvx": "$0.13110",
+            "amount": "$476.00k",
+            "address": ""
+        },
+        "optimism-f-sUSD3CRV": {
+            "per_vlcvx": "$0.13078",
+            "amount": "$39.25k",
+            "address": ""
+        },
+        "frax": {
+            "per_vlcvx": "$0.13072",
+            "amount": "$2.72m",
+            "address": ""
+        },
+        "eursusd": {
+            "per_vlcvx": "$0.13044",
+            "amount": "$205.90k",
+            "address": ""
+        },
+        "alusd": {
+            "per_vlcvx": "$0.13044",
+            "amount": "$132.46k",
+            "address": ""
+        },
+        "fpifrax": {
+            "per_vlcvx": "$0.12946",
+            "amount": "$210.08k",
+            "address": ""
+        },
+        "cvxfxs": {
+            "per_vlcvx": "$0.12933",
+            "amount": "$246.10k",
+            "address": ""
+        },
+        "f-stgusdc": {
+            "per_vlcvx": "$0.12897",
+            "amount": "$191.77k",
+            "address": ""
+        },
+        "cvxeth": {
+            "per_vlcvx": "$0.12782",
+            "amount": "$153.81k",
+            "address": ""
+        },
+        "cvxcrv": {
+            "per_vlcvx": "$0.10545",
+            "amount": "$369.15k",
+            "address": ""
+        }
+    }
+}
