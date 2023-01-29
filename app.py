@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-# import altair as alt
+import altair as alt
 from millify import millify
 
 st.set_page_config(
@@ -57,7 +57,6 @@ show_rounds = st.slider(
     max_value = max_value,
     value=[max_value-12,max_value],
 )
-print(f'{show_rounds=}')
 
 st.header('Total Bribes')
 denomination = st.selectbox(
@@ -87,7 +86,7 @@ st.bar_chart(
 
 st.header('CVX/CRV Ratio')
 
-print(df['cvxcrv'])
+# print(df['cvxcrv'])
 st.bar_chart(
     data=df.iloc[show_rounds[0]-1:show_rounds[1]],
     x='round',
@@ -95,12 +94,6 @@ st.bar_chart(
 )
 
 st.header('Token Price Changes')
-
-# token1, token2, token3, token4 = st.columns(4)
-# token1.checkbox('BTC', value=True)
-# token2.checkbox('ETH', value=True)
-# token3.checkbox('CRV', value=True)
-# token4.checkbox('CVX', value=True)
 
 with st.expander("Show/Hide Tokens"):
     show_btc = st.checkbox('BTC', value=True)
@@ -124,29 +117,31 @@ st.line_chart(
     y=show_tokens,
 )
 
-
-# st.line_chart(
-#     data=df,
-#     x='end',
-#     y=['apr_open', 'apr_close'],
-#     )
-
-# st.line_chart(
-#     data=df,
-#     x='end_date',
-#     y=['cvxcrv_open', 'cvxcrv_close'],
-#     )
-
-# a = alt.Chart(df).mark_area(opacity=0.5).encode(
-#     x='end_date', y='apr_close')
-
-# b = alt.Chart(df).mark_area(opacity=0.6).encode(
-#     x='end_date', y='cvxcrv_close')
-
-# c = alt.layer(a, b)
-
-# st.altair_chart(c, use_container_width=True)
-
 st.header('Raw Data')
 st.write(df)
+
+st.header('Bribe Data')
+bribes_df = pd.read_csv('data/rounds-bribes.csv')
+bribes_df = bribes_df.iloc[show_rounds[0]-1:show_rounds[1]].copy()
+bribes_df = bribes_df.dropna(axis=1, how='all')
+bribes = list(bribes_df.columns)
+bribes.remove('round')
+bribes_df = pd.concat([bribes_df['round'].astype('string'), bribes_df[bribes].astype('float64')], axis=1)
+wide_df = bribes_df.melt('round', var_name='briber', value_name='amount')
+st.altair_chart(
+    alt.Chart(wide_df).mark_area().encode(
+        x='round',
+        y=alt.Y('amount', stack='normalize'),
+        color='briber',
+    ),
+    use_container_width=True,
+)
+
+st.header('Bribe Summary')
+summary_df = pd.concat([bribes_df.sum().T, bribes_df.describe().T], axis=1)
+summary_df.columns = ['sum', 'count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']
+st.write(summary_df)
+
+st.header('Bribe Raw Data')
+st.write(bribes_df)
 

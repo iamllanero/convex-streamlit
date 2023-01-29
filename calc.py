@@ -2,6 +2,8 @@ from datetime import datetime, timedelta
 from utils import list_to_csv
 import coingecko as cg
 import json
+import pandas as pd
+import tomllib
 
 def parse_currency_str(s:str):
     """
@@ -19,6 +21,8 @@ def parse_currency_str(s:str):
         f = float(s[:-1]) * 1000
     elif s.lower().endswith('m'):
         f = float(s[:-1]) * 1000000
+    else:
+        f = float(s[:-1])
 
     return f
 
@@ -69,30 +73,45 @@ def calc_prices():
 
 
 def calc_bribes():
+    with open('bribe-map.toml', 'rb') as bf:
+        bribe_map = tomllib.load(bf)
     today = datetime.now()
     round = 1
     round_start = datetime.strptime('2021-09-16', '%Y-%m-%d')
     round_end = round_start + timedelta(days=5)
 
-    rounds = [[
-        'round',
-        'start',
-        'end',
-        'btc',
-        'eth',
-        'crv',
-        'cvx',
-    ]]
-
+    all_df = None
     while round_end < today:
     
-        pass
+        fn = f'data/round-{round}.json'
+        # print(f'Opening {fn}')
+        with open(fn) as f:
+            s = json.load(f)
+
+        round_df = pd.json_normalize(s)
+        bribes = {'round': round}
+        for i in round_df.columns:
+            if i.startswith('bribes.') and i.endswith('.amount'):
+                protocol = i[7:i.rfind('.')]
+                protocol = protocol.replace('crvFRAX', 'FRAXBP')
+
+                if protocol in bribe_map['mapping']:
+                    # Remap
+                    #print(f'Remapping {protocol}')
+                    protocol = bribe_map['mapping'][protocol]
+                bribes[protocol] = parse_currency_str(round_df[i][0])
+        bribes_df = pd.DataFrame([bribes])
+
+        if all_df is None:
+            all_df = bribes_df
+        else:
+            all_df = pd.concat([all_df, bribes_df], ignore_index=True)
 
         round += 1
         round_start += timedelta(days=14)
         round_end = round_start + timedelta(days=5)
 
-    
+    all_df.to_csv('data/rounds-bribes.csv', index=False)  
 
 if __name__ == '__main__':
     calc_prices()
