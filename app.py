@@ -126,12 +126,15 @@ bribes_df = bribes_df.iloc[show_rounds[0]-1:show_rounds[1]].copy()
 bribes_df = bribes_df.dropna(axis=1, how='all')
 bribes = list(bribes_df.columns)
 bribes.remove('round')
-bribes_df = pd.concat([bribes_df['round'].astype('string'), bribes_df[bribes].astype('float64')], axis=1)
+# bribes_df = pd.concat([bribes_df['round'].astype('string'), bribes_df[bribes].astype('float64')], axis=1)
+bribes_df = pd.concat([bribes_df['round'].astype('int'), bribes_df[bribes].astype('float64')], axis=1)
 wide_df = bribes_df.melt('round', var_name='briber', value_name='amount')
+wide_df = wide_df.sort_values(by='round').astype({'round': 'string'})
+bar_width = 80 - (show_rounds[1] - show_rounds[0])
 st.altair_chart(
     alt.Chart(wide_df).mark_bar().encode(
-        x='round',
-        y=alt.Y('amount', stack='normalize'),
+        x=alt.X('round', sort=None),
+        y=alt.Y('amount', stack='normalize', sort=None),
         color='briber',
     ),
     use_container_width=True,
