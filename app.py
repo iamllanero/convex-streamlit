@@ -129,7 +129,7 @@ bribes.remove('round')
 bribes_df = pd.concat([bribes_df['round'].astype('string'), bribes_df[bribes].astype('float64')], axis=1)
 wide_df = bribes_df.melt('round', var_name='briber', value_name='amount')
 st.altair_chart(
-    alt.Chart(wide_df).mark_area().encode(
+    alt.Chart(wide_df).mark_bar().encode(
         x='round',
         y=alt.Y('amount', stack='normalize'),
         color='briber',
