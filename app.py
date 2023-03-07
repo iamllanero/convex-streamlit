@@ -48,7 +48,7 @@ metric1.metric('Latest Round', max_value)
 metric2.metric(
     'Latest Bribe', 
     f'${millify(curr_round_bribe, precision=2)}',
-    f'${millify(curr_round_bribe - prev_round_bribe)}',
+    f'{millify(curr_round_bribe - prev_round_bribe)}',
     )
 
 show_rounds = st.slider(
