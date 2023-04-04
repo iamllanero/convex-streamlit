@@ -27,7 +27,7 @@ def parse_currency_str(s:str):
     return f
 
 def calc_prices():
-    today = datetime.now()
+    today = datetime.now() + timedelta(hours=6)
     round = 1
     round_start = datetime.strptime('2021-09-16', '%Y-%m-%d')
     round_end = round_start + timedelta(days=5)
@@ -44,6 +44,8 @@ def calc_prices():
     ]]
 
     while round_end < today:
+        print(f"Calculating {round_end} compared to {today} -")
+
         btc_price = cg.get_historical_price('btc', round_end)
         eth_price = cg.get_historical_price('eth', round_end)
         crv_price = cg.get_historical_price('crv', round_end)
@@ -75,7 +77,7 @@ def calc_prices():
 def calc_bribes():
     with open('bribe-map.toml', 'rb') as bf:
         bribe_map = tomllib.load(bf)
-    today = datetime.now()
+    today = datetime.now() + timedelta(hours=6)
     round = 1
     round_start = datetime.strptime('2021-09-16', '%Y-%m-%d')
     round_end = round_start + timedelta(days=5)
