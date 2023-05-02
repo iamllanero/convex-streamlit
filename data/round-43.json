@@ -1,0 +1,223 @@
+{
+    "round": 43,
+    "per_vlcvx": "$0.04482",
+    "deadline": "5/1/2023",
+    "total": "$2.15m",
+    "bribes": {
+        "USDD+3Crv": {
+            "per_vlcvx": "$0.04848",
+            "amount": "$5.75k",
+            "address": "(0xe6b5…)"
+        },
+        "cbETH+frxETH": {
+            "per_vlcvx": "$0.04848",
+            "amount": "$7.47k",
+            "address": "(0x7306…)"
+        },
+        "STBT+3Crv": {
+            "per_vlcvx": "$0.04844",
+            "amount": "$9.60k",
+            "address": "(0x892D…)"
+        },
+        "CVX+clevCVX": {
+            "per_vlcvx": "$0.04835",
+            "amount": "$19.35k",
+            "address": "(0xF907…)"
+        },
+        "rETH+frxETH": {
+            "per_vlcvx": "$0.04832",
+            "amount": "$7.47k",
+            "address": "(0xe7c6…)"
+        },
+        "stETH+frxETH": {
+            "per_vlcvx": "$0.04820",
+            "amount": "$7.47k",
+            "address": "(0x4d9f…)"
+        },
+        "xdai-WXDAI+USDC+USDT": {
+            "per_vlcvx": "$0.04819",
+            "amount": "$6.29k",
+            "address": "(0x7f90…)"
+        },
+        "ankrETH+frxETH": {
+            "per_vlcvx": "$0.04817",
+            "amount": "$7.47k",
+            "address": "(0x41eA…)"
+        },
+        "CRV+frxETH": {
+            "per_vlcvx": "$0.04814",
+            "amount": "$7.47k",
+            "address": "(0x442F…)"
+        },
+        "MIM+3Crv": {
+            "per_vlcvx": "$0.04813",
+            "amount": "$22.50k",
+            "address": "(0x5a6A…)"
+        },
+        "ETH+CLEV": {
+            "per_vlcvx": "$0.04812",
+            "amount": "$10.32k",
+            "address": "(0x342D…)"
+        },
+        "UZD+FRAXBP": {
+            "per_vlcvx": "$0.04811",
+            "amount": "$18.53k",
+            "address": "(0x6893…)"
+        },
+        "ETH+CNC": {
+            "per_vlcvx": "$0.04802",
+            "amount": "$25.34k",
+            "address": "(0x838a…)"
+        },
+        "alUSD+3Crv": {
+            "per_vlcvx": "$0.04790",
+            "amount": "$16.86k",
+            "address": "(0x43b4…)"
+        },
+        "STG+FRAXBP": {
+            "per_vlcvx": "$0.04789",
+            "amount": "$29.93k",
+            "address": "(0x867f…)"
+        },
+        "eCFX+ETH": {
+            "per_vlcvx": "$0.04769",
+            "amount": "$36.61k",
+            "address": "(0x5ac4…)"
+        },
+        "frxETH+CVX": {
+            "per_vlcvx": "$0.04768",
+            "amount": "$69.40k",
+            "address": "(0x47D5…)"
+        },
+        "alETH+frxETH": {
+            "per_vlcvx": "$0.04766",
+            "amount": "$7.47k",
+            "address": "(0xB657…)"
+        },
+        "sETH+frxETH": {
+            "per_vlcvx": "$0.04762",
+            "amount": "$7.47k",
+            "address": "(0x663a…)"
+        },
+        "FPIS+cvxFPIS": {
+            "per_vlcvx": "$0.04753",
+            "amount": "$34.41k",
+            "address": "(0xfBB4…)"
+        },
+        "cvxCRV+FRAXBP": {
+            "per_vlcvx": "$0.04745",
+            "amount": "$14.57k",
+            "address": "(0x31c3…)"
+        },
+        "DOLA+FRAXBP": {
+            "per_vlcvx": "$0.04733",
+            "amount": "$50.49k",
+            "address": "(0xE571…)"
+        },
+        "alUSD+FRAXBP": {
+            "per_vlcvx": "$0.04725",
+            "amount": "$114.38k",
+            "address": "(0xB30d…)"
+        },
+        "STG+USDC": {
+            "per_vlcvx": "$0.04721",
+            "amount": "$71.14k",
+            "address": "(0x3211…)"
+        },
+        "CVX+FRAXBP": {
+            "per_vlcvx": "$0.04712",
+            "amount": "$14.27k",
+            "address": "(0xBEc5…)"
+        },
+        "ETH+alETH": {
+            "per_vlcvx": "$0.04710",
+            "amount": "$101.15k",
+            "address": "(0xC4C3…)"
+        },
+        "ETH+frxETH": {
+            "per_vlcvx": "$0.04685",
+            "amount": "$170.99k",
+            "address": "(0xa1F8…)"
+        },
+        "TUSD+3Crv": {
+            "per_vlcvx": "$0.04681",
+            "amount": "$21.16k",
+            "address": "(0xEcd5…)"
+        },
+        "FRAX+FPI": {
+            "per_vlcvx": "$0.04678",
+            "amount": "$148.37k",
+            "address": "(0xf861…)"
+        },
+        "cvxFXS+FRAXBP": {
+            "per_vlcvx": "$0.04677",
+            "amount": "$7.54k",
+            "address": "(0x21d1…)"
+        },
+        "FRAX+USDP": {
+            "per_vlcvx": "$0.04656",
+            "amount": "$65.24k",
+            "address": "(0xaE34…)"
+        },
+        "FRAX+3Crv": {
+            "per_vlcvx": "$0.04651",
+            "amount": "$218.51k",
+            "address": "(0xd632…)"
+        },
+        "FXS+cvxFXS": {
+            "per_vlcvx": "$0.04645",
+            "amount": "$103.23k",
+            "address": "(0xd658…)"
+        },
+        "FRAX+USDC": {
+            "per_vlcvx": "$0.04643",
+            "amount": "$211.46k",
+            "address": "(0xDcEF…)"
+        },
+        "WETH+CVX": {
+            "per_vlcvx": "$0.04630",
+            "amount": "$55.05k",
+            "address": "(0xB576…)"
+        },
+        "CRV+cvxCRV": {
+            "per_vlcvx": "$0.04306",
+            "amount": "$399.15k",
+            "address": "(0x971a…)"
+        },
+        "TUSD+FRAXBP": {
+            "per_vlcvx": "$0.03721",
+            "amount": "$3.37k",
+            "address": "(0x33ba…)"
+        },
+        "clevUSD+FRAXBP": {
+            "per_vlcvx": "$0.03432",
+            "amount": "$9.91k",
+            "address": "(0x84C3…)"
+        },
+        "SDT+FRAXBP": {
+            "per_vlcvx": "$0.03066",
+            "amount": "$2.79k",
+            "address": "(0x3e3C…)"
+        },
+        "USDD+FRAXBP": {
+            "per_vlcvx": "$0.02381",
+            "amount": "$2.14k",
+            "address": "(0x4606…)"
+        },
+        "eUSD+FRAXBP": {
+            "per_vlcvx": "$0.00467",
+            "amount": "$4.54k",
+            "address": "(0xAEda…)"
+        },
+        "ALCX+FRAXBP": {
+            "per_vlcvx": "$0.00299",
+            "amount": "$670.05",
+            "address": "(0x4149…)"
+        },
+        "msUSD+FRAXBP": {
+            "per_vlcvx": "$0.00141",
+            "amount": "$257.71",
+            "address": "(0xc3b1…)"
+        }
+    }
+}

@@ -87,7 +87,7 @@ st.bar_chart(
 st.header('CVX/CRV Ratio')
 
 # print(df['cvxcrv'])
-st.bar_chart(
+st.line_chart(
     data=df.iloc[show_rounds[0]-1:show_rounds[1]],
     x='round',
     y='cvxcrv',
@@ -118,7 +118,7 @@ st.line_chart(
 )
 
 st.header('Raw Data')
-st.write(df)
+st.dataframe(df)
 
 st.header('Bribe Data')
 bribes_df = pd.read_csv('data/rounds-bribes.csv')
