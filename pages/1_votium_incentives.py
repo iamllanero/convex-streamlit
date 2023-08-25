@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
-import datetime as dt
+from datetime import datetime
 from coingecko import get_historical_price
 
 def convert_to(date, usd_amount, token_symbol):
-    date = dt.datetime.strptime(date, '%Y-%m-%d')
+    date = datetime.strptime(date, '%Y-%m-%d')
     price = get_historical_price(token_symbol, date)
     return usd_amount / price
 
