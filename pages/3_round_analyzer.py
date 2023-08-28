@@ -43,7 +43,7 @@ def main():
     st.dataframe(
         # round_df[['choice', 'adj_amount', 'token_symbol', 'usd_amount', 'per_vlcvx']], 
         grouped_df[['choice', 'usd_amount', 'per_vlcvx', 'tokens']], 
-        height=500,
+        height=(grouped_df.shape[0] + 1) * 35 + 2,
         hide_index=True,
         use_container_width=True,
         column_config={

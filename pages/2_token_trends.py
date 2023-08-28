@@ -63,7 +63,7 @@ def main():
     st.bar_chart(
         data=pivot_df,
         x='round',
-        height=550,
+        height=(pivot_df.shape[0] + 1) * 35 + 2,
     )
 
     st.header("Token Breakdown ($ in thousands)")
