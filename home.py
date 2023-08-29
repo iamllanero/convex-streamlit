@@ -29,6 +29,11 @@ tokens.
 This section shows a tablular breakdown of the gauge incentives for a selected 
 round.
 
+## Forecasts
+
+This section shows a forecast of various rounds. The forecasts are currently
+run sporadically so presented as the round number and latest block number.
+
 ## About
 
 This site is created by me, [Llanero](https://x.com/iamllanero), for my own
