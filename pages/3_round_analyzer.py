@@ -16,7 +16,7 @@ def main():
 
     with gauge_col:
         gauge_filter = st.text_input('Gauge Filter')
-        if gauge_filter is not '':
+        if gauge_filter != '':
             prices_df = prices_df[prices_df['choice'].str.contains(gauge_filter)]
 
     with token_col:
@@ -26,8 +26,8 @@ def main():
         if len(token_filter) > 0:
             prices_df = prices_df[prices_df['token_symbol'].isin(token_filter)]
 
-    round_df = prices_df[prices_df['round'] == selected_round]  
-    round_df['adj_amount'] = round_df['amount'].apply(lambda x: adjusted_amount(x, round_df['token_symbol'].iloc[0])) 
+    round_df = prices_df[prices_df['round'] == selected_round].copy()
+    round_df['adj_amount'] = round_df.apply(lambda x: adjusted_amount(x['amount'], x['token_symbol']), axis=1) 
     round_df['per_vlcvx'] = round_df['usd_amount'] / round_df['score']
 
     grouped_df = round_df.groupby('choice').agg({

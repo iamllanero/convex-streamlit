@@ -10,10 +10,10 @@ def convert_to(date, usd_amount, token_symbol):
 
 
 def main():
-    st.set_page_config(page_title="Voting Incentives",
+    st.set_page_config(page_title="Incentives",
                        layout="wide")
 
-    st.title("Votium Incentives")
+    st.title("Incentives")
 
     prices_df = pd.read_csv('data/prices.csv')
 
