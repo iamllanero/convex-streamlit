@@ -22,26 +22,33 @@ it almost certainly will not be accurate!**
 
     st.header("Forecast Summary")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
+        st.metric(
+            "Forecast", 
+            f"${df['forecast'].sum():,.0f}", 
+            f"{df['forecast'].sum() - df['usd_last'].sum():+,.0f}"
+        )
+
+    with col2:
+        st.metric(
+            "Current Incentives", 
+            f"${df['usd'].sum():,.0f}",
+            f"{df['usd'].sum() - df['usd_last'].sum():+,.0f}"
+        )
+
+    with col3:
         st.metric(
             "No. of Gauges", 
             f"{df['usd'].count():,.0f}", 
             f"{df['usd'].count() - df['usd_last'].count():+,.0f}"
         )
 
-    with col2:
-        st.metric(
-            "Incentives", 
-            f"${df['usd'].sum():,.0f}",
-            f"{df['usd'].sum() - df['usd_last'].sum():+,.0f}"
-        )
-
-    with col3:
-        current_round_score = df.groupby('choice_current').first()['score_current'].sum()
+    with col4:
+        current_round_score = df.groupby('choice').first()['score_current'].sum()
         current_round_per = df['usd'].sum() / current_round_score
-        last_round_score = df.groupby('choice_last').first()['score_last'].sum()
+        last_round_score = df.groupby('choice').first()['score_last'].sum()
         last_round_per = df['usd_last'].sum() / last_round_score
         st.metric(
             "Per vlCVX",
