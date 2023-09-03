@@ -16,7 +16,7 @@ it almost certainly will not be accurate!**
     forecast_files = glob.glob('data/forecast*.csv')
     forecasts = [f.split('/')[-1].split('.')[0] for f in forecast_files]
     
-    forecast = st.selectbox('Select a forecast', forecasts)
+    forecast = st.selectbox('Select a forecast', sorted(forecasts, reverse=True))
 
     df = pd.read_csv(f"data/{forecast}.csv")
 
