@@ -35,10 +35,36 @@ def main():
         'adj_amount': list,
         'token_symbol': list,
         'per_vlcvx': 'sum',
+        'score': 'first',
     }).reset_index()
     grouped_df['tokens'] = grouped_df.apply(lambda x: '\n'.join([f"{a:,.0f} {s}\n" for a, s in zip(x['adj_amount'], x['token_symbol'])]), axis=1)
 
     # grouped_df
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric(
+            "Total USD", 
+            f"${round_df['usd_amount'].sum():,.0f}", 
+        )
+    
+    with col2:
+        st.metric(
+            "Per vlCVX", 
+            f"${round_df['usd_amount'].sum()/grouped_df['score'].sum():,.4f}", 
+        )
+    
+    with col3:
+        st.metric(
+            "Total Gauges", 
+            f"{grouped_df['score'].count():,.0f}", 
+        )   
+    
+    with col4:
+        st.metric(
+            "Total Incentives", 
+            f"{round_df['score'].count():,.0f}", 
+        )   
 
     st.dataframe(
         # round_df[['choice', 'adj_amount', 'token_symbol', 'usd_amount', 'per_vlcvx']], 
