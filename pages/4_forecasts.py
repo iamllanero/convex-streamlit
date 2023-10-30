@@ -13,12 +13,12 @@ on the last round's incentives. This forecast should be used with caution as
 it almost certainly will not be accurate!**
 """)
 
-    forecast_files = glob.glob('data/forecast*.csv')
+    forecast_files = glob.glob('output/forecast/forecast*.csv')
     forecasts = [f.split('/')[-1].split('.')[0] for f in forecast_files]
     
     forecast = st.selectbox('Select a forecast', sorted(forecasts, reverse=True))
 
-    df = pd.read_csv(f"data/{forecast}.csv")
+    df = pd.read_csv(f"output/forecast/{forecast}.csv")
 
     st.header("Forecast Summary")
 
@@ -46,9 +46,9 @@ it almost certainly will not be accurate!**
         )
 
     with col4:
-        current_round_score = df.groupby('choice').first()['score_current'].sum()
+        current_round_score = df.groupby('gauge').first()['votes_current'].sum()
         current_round_per = df['usd'].sum() / current_round_score
-        last_round_score = df.groupby('choice').first()['score_last'].sum()
+        last_round_score = df.groupby('gauge').first()['votes_last'].sum()
         last_round_per = df['usd_last'].sum() / last_round_score
         st.metric(
             "Per vlCVX",
@@ -58,7 +58,7 @@ it almost certainly will not be accurate!**
 
     st.header("Forecast Details")
     st.dataframe(
-        df[['choice', 'symbol', 'amount', 'usd', 'per', 'amount_last', 'usd_last', 'per_last', 'forecast']],
+        df[['gauge', 'symbol', 'amount', 'usd', 'per', 'amount_last', 'usd_last', 'per_vote_last', 'forecast']],
         height=(df.shape[0] + 1) * 35 + 2,
         hide_index=True,
         use_container_width=True,
@@ -82,7 +82,7 @@ it almost certainly will not be accurate!**
             'usd_last': st.column_config.NumberColumn(
                 'USD Last',
                 format="$ %.2f"),
-            'per_last': st.column_config.NumberColumn(
+            'per_vote_last': st.column_config.NumberColumn(
                 'Per vlCVX Last',
                 format="$ %.4f"),
             'forecast': st.column_config.NumberColumn(

@@ -1,3 +1,0 @@
-millify
-pandas
-streamlit

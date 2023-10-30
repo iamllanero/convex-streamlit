@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime
-from coingecko import get_historical_price
+# from coingecko import get_historical_price
 
 def convert_to(date, usd_amount, token_symbol):
     date = datetime.strptime(date, '%Y-%m-%d')
-    price = get_historical_price(token_symbol, date)
+    # price = get_historical_price(token_symbol, date)
+    price = 1
     return usd_amount / price
 
 
@@ -15,7 +16,7 @@ def main():
 
     st.title("Incentives")
 
-    prices_df = pd.read_csv('data/prices.csv')
+    prices_df = pd.read_csv('output/consolidate/prices.csv')
 
     # Create a dataframe with the total incentives per round
     # rounds_df = prices_df.groupby('round')[['usd_amount', 'score']].sum().reset_index()

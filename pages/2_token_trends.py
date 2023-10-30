@@ -7,7 +7,7 @@ def main():
 
     st.title("Token Trends")
 
-    prices_df = pd.read_csv('data/prices.csv')
+    prices_df = pd.read_csv('output/consolidate/prices.csv')
 
     max_round = prices_df['round'].max()
     min_round = prices_df['round'].min()

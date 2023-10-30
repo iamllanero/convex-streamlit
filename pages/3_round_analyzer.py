@@ -7,7 +7,7 @@ def main():
     st.set_page_config(layout="wide")
     st.title("Round Analyzer")
 
-    prices_df = pd.read_csv('data/prices.csv')
+    prices_df = pd.read_csv('output/consolidate/prices.csv')
 
     round_col, gauge_col, token_col = st.columns(3)
 
