@@ -1,8 +1,9 @@
-import csv
-import sys
-import pandas as pd
-import os
 from votium import rounds
+import csv
+import datetime
+import os
+import pandas as pd
+import sys
 
 PRICE_DATA_DIR = '../votium-py/output/price'
 # DATA_DIR = 'data'
@@ -20,6 +21,7 @@ def consolidate_data():
     end_round = rounds.get_last_round()
     for i in range(1, end_round+1):
         file_path = f'{PRICE_DATA_DIR}/round_{i}_price.csv'
+        print(f"Consolidating round {i} from {file_path}")
         with open(file_path, 'r') as f:
             f.readline()
             reader = csv.reader(f)
@@ -97,13 +99,12 @@ def forecast():
                            suffixes=('_current', '_last'), how='outer')
     
     # Save to a file
-    forecast_df.to_csv(f"{FORECAST_OUTPUT_DIR}/tmp-forecast-1.csv", index=False)
+    # forecast_df.to_csv(f"{FORECAST_OUTPUT_DIR}/tmp-forecast-1.csv", index=False)
 
     # Compute the forecast
     forecast_df['chng'] = (forecast_df['usd_value_current'] - forecast_df['usd_value_last']) / forecast_df['usd_value_last'] * 100
 
     avg_change = 1 + forecast_df['chng'].mean() / 100
-    print(f"{avg_change=}")
     forecast_df['forecast'] = forecast_df.apply(lambda x: x['usd_value_last'] * avg_change if pd.isnull(x['usd_value_current']) else x['usd_value_current'], axis=1)
 
     # Clean up duplicates from the outer merge
@@ -113,7 +114,7 @@ def forecast():
     forecast_df.loc[duplicates, columns_to_set_nan] = None
 
     # Save to a file
-    forecast_df.to_csv(f"{FORECAST_OUTPUT_DIR}/tmp-forecast-2.csv", index=False)
+    # forecast_df.to_csv(f"{FORECAST_OUTPUT_DIR}/tmp-forecast-2.csv", index=False)
 
     # Get the new gauges
     new_df = forecast_df[pd.isna(forecast_df['amount_last'])]
@@ -140,40 +141,40 @@ def forecast():
     }, inplace=True)
     # max_block_number = int(forecast_df['block_number_current'].max())
     max_block_number = 0
-    forecast_file = f"{FORECAST_OUTPUT_DIR}/forecast-{current_round}-{len(forecast_df)}.csv"
+    forecast_file = f"{FORECAST_OUTPUT_DIR}/forecast-{current_round}-{datetime.datetime.now().strftime('%y%m%d%H%M')}.csv"
     forecast_df.to_csv(forecast_file, index=False)
-    print(forecast_df[[
-        'gauge',
-        # 'choice_index', 
-        # 'choice_current', 
-        'symbol', 
-        'amount', 
-        'usd', 
-        'per', 
-        'chng', 
-        'forecast', 
-        # 'choice_last', 
-        'amount_last', 
-        'usd_last', 
-        'per_vote_last',
-        ]])
+    # print(forecast_df[[
+    #     'gauge',
+    #     # 'choice_index', 
+    #     # 'choice_current', 
+    #     'symbol', 
+    #     'amount', 
+    #     'usd', 
+    #     'per', 
+    #     'chng', 
+    #     'forecast', 
+    #     # 'choice_last', 
+    #     'amount_last', 
+    #     'usd_last', 
+    #     'per_vote_last',
+    #     ]])
 
-    print()
-    print(f"Round {current_round-1}")
-    print(f"- Total Gauges:    {forecast_df['usd_last'].count():,.0f}")
+    # print()
+    # print(f"Round {current_round-1}")
+    # print(f"- Total Gauges:    {forecast_df['usd_last'].count():,.0f}")
     # print(f"- Total USD:       ${last_round_usd:,.0f}")
     # print(f"- Total vlCVX:     {last_round_score:,.2f}")
     # print(f"- Per vlCVX:       ${last_round_usd / last_round_score:,.4f}")
-    print()
-    print(f"Round {current_round} Current")
-    print(f"- New Gauges:      {new_df['forecast'].count():,.0f}")
-    print(f"- New USD:         ${new_df['forecast'].sum():,.0f}")
-    print(f"- Current Gauges:  {forecast_df['usd'].count():,.0f}")
+    # print()
+    # print(f"Round {current_round} Current")
+    # print(f"- New Gauges:      {new_df['forecast'].count():,.0f}")
+    # print(f"- New USD:         ${new_df['forecast'].sum():,.0f}")
+    # print(f"- Current Gauges:  {forecast_df['usd'].count():,.0f}")
     # print(f"- Current USD:     ${current_round_usd:,.0f}")
     # print(f"- Per vlCVX:       ${current_round_usd / current_round_score:,.4f}")
-    print()
-    print(f"Round {current_round} Forecast")
-    print(f"- Forecast USD:    ${forecast_df['forecast'].sum():,.0f}")
+    # print()
+    # print(f"Round {current_round} Forecast")
+    # print(f"- Forecast USD:    ${forecast_df['forecast'].sum():,.0f}")
     # print(f"- Per vlCVX:       ${forecast_df['forecast'].sum() / last_round_score:,.4f}")
 
     # os.remove(f"birbs/data/cache/{current_round}-bribes.csv")
