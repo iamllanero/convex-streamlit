@@ -23,35 +23,28 @@ def consolidate_data():
         file_path = f'{PRICE_DATA_DIR}/round_{i}_price.csv'
         print(f"Consolidating round {i} from {file_path}")
         with open(file_path, 'r') as f:
-            f.readline()
-            reader = csv.reader(f)
+            # gauge,amount,token_symbol,timestamp,token,token_name,transaction_hash,block_hash,block_number,score
+            reader = csv.DictReader(f)
             for row in reader:
-                (gauge, 
-                 amount, 
-                 token_symbol, 
-                 token_price, 
-                 usd_value, 
-                 votes, 
-                 token_addr,
-                 token_name,
-                 per_vote) = row
                 date = rounds.get_dates_for_round(i)[0]
+                if row['score'] == '0.0':
+                    per_score = 0
+                else:
+                    per_score = float(row['usd_value']) / float(row['score'])
                 consolidated.append([
                     i,
                     str(date)[:10],
-                    token_symbol,
-                    amount,
-                    usd_value,
-                    gauge,
-                    'block_number',
-                    'choice_index',
-                    token_name,
-                    token_price,
-                    token_addr,
-                    votes,
-                    'proposal',
-                    'tx_hash',
-                    per_vote,
+                    row['gauge'],
+                    row['token_symbol'],
+                    row['amount'],
+                    row['usd_value'],
+                    row['block_number'],
+                    row['token_name'],
+                    row['token_price'],
+                    row['token'],
+                    row['score'],
+                    per_score,
+                    row['transaction_hash'],
                 ])
 
     with open(f'{CONSOLIDATE_OUTPUT_DIR}/prices.csv', 'w') as f:
@@ -59,19 +52,17 @@ def consolidate_data():
         writer.writerow([
             'round',
             'date',
+            'gauge',
             'token_symbol',
             'amount',
-            'usd_amount',
-            'choice',
+            'usd_value',
             'block_number',
-            'choice_index',
             'token_name',
             'token_price',
-            'token_addr',
+            'token',
             'score',
-            'proposal',
-            'tx_hash',
-            'per_vote'
+            'per_score',
+            'transaction_hash',
         ])
         writer.writerows(consolidated)
 

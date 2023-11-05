@@ -25,12 +25,12 @@ def main():
     filtered_df = prices_df[(prices_df['round'] >= from_round) & (prices_df['round'] <= to_round)]
 
     # Group by the token symbols
-    tokens_df = filtered_df.groupby(['round', 'token_symbol'])[['usd_amount']].sum().reset_index()
-    tokens_df['usd_amount'] = tokens_df['usd_amount'] / 1000
-    tokens_df['usd_amount'] = tokens_df['usd_amount'].round(0)
+    tokens_df = filtered_df.groupby(['round', 'token_symbol'])[['usd_value']].sum().reset_index()
+    tokens_df['usd_value'] = tokens_df['usd_value'] / 1000
+    tokens_df['usd_value'] = tokens_df['usd_value'].round(0)
 
     # Pivot the table to have the tokens as columns
-    pivot_df = tokens_df.pivot(index='round', columns='token_symbol', values='usd_amount').reset_index()
+    pivot_df = tokens_df.pivot(index='round', columns='token_symbol', values='usd_value').reset_index()
     sorted_cols = list(pivot_df.sum().sort_values(ascending=False).index)
     sorted_cols.remove('round')
     sorted_cols.insert(0, 'round')

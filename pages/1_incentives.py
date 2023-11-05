@@ -23,15 +23,15 @@ def main():
     rounds_df = prices_df.groupby('round').agg({
         'date': 'first',
         'score': 'sum',
-        'usd_amount': 'sum'
+        'usd_value': 'sum'
     }).reset_index()
-    rounds_df['Incentives ($M)'] = rounds_df['usd_amount'] / 1000000
+    rounds_df['Incentives ($M)'] = rounds_df['usd_value'] / 1000000
     rounds_df['Score (M)'] = rounds_df['score'] / 1000000
-    rounds_df['Per ($)'] = rounds_df['usd_amount'] / rounds_df['score']
+    rounds_df['Per ($)'] = rounds_df['usd_value'] / rounds_df['score']
 
     # Augment rounds_df with other denominations
     for token_symbol in ['BTC', 'ETH', 'CRV', 'CVX']:
-        rounds_df[token_symbol] = rounds_df.apply(lambda x: convert_to(x['date'], x['usd_amount'], token_symbol), axis=1)
+        rounds_df[token_symbol] = rounds_df.apply(lambda x: convert_to(x['date'], x['usd_value'], token_symbol), axis=1)
 
     rounds_df['ETH (K)'] = rounds_df['ETH'] / 1000
     rounds_df['CRV (M)'] = rounds_df['CRV'] / 1000000
@@ -64,15 +64,19 @@ def main():
                  y=['CVX (100K)'], 
                  height=250)
     
-    # st.header("Incentives per vlCVX")
-    # st.text("NOTE: This is currently incorrect.")
+    st.text("Incentives per vlCVX")
 
-    # st.bar_chart(data=rounds_df.iloc[show_rounds[0]-1:show_rounds[1]], 
-    #              x='round', 
-    #              y=['Per ($)'], 
-    #              height=300)
+    st.bar_chart(data=rounds_df.iloc[show_rounds[0]-1:show_rounds[1]], 
+                 x='round', 
+                 y=['Per ($)'], 
+                 height=300)
 
-    # st.header("Score (M)")
+    st.text("Score (M)")
+    st.bar_chart(data=rounds_df.iloc[show_rounds[0]-1:show_rounds[1]], 
+                 x='round', 
+                 y=['Score (M)'], 
+                 height=250)
+
     # st.text("NOTE: This is currently incorrect.")
 
     # st.bar_chart(data=rounds_df.iloc[show_rounds[0]-1:show_rounds[1]], 
