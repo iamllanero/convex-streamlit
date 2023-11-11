@@ -46,9 +46,9 @@ it almost certainly will not be accurate!**
         )
 
     with col4:
-        current_round_score = df.groupby('gauge').first()['votes_current'].sum()
+        current_round_score = df.groupby('gauge').first()['score_current'].sum()
         current_round_per = df['usd'].sum() / current_round_score
-        last_round_score = df.groupby('gauge').first()['votes_last'].sum()
+        last_round_score = df.groupby('gauge').first()['score_last'].sum()
         last_round_per = df['usd_last'].sum() / last_round_score
         st.metric(
             "Per vlCVX",
@@ -82,7 +82,7 @@ it almost certainly will not be accurate!**
             'usd_last': st.column_config.NumberColumn(
                 'USD Last',
                 format="$ %.2f"),
-            'per_vote_last': st.column_config.NumberColumn(
+            'per_score_last': st.column_config.NumberColumn(
                 'Per vlCVX Last',
                 format="$ %.4f"),
             'forecast': st.column_config.NumberColumn(
