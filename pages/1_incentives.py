@@ -1,12 +1,54 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime
-# from coingecko import get_historical_price
+import requests
+import os
+
+TOKEN_IDS = {
+    'BTC': '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
+    'ETH': '0x0000000000000000000000000000000000000000',
+    'CRV': '0xd533a949740bb3306d119cc777fa900ba034cd52',
+    'CVX': '0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b',
+}
+
+# Prep the cache file
+CACHE_DF = None
+CACHE_FILE = "output/cache/dl_prices.csv"
+if os.path.exists(CACHE_FILE):
+    CACHE_DF = pd.read_csv(CACHE_FILE)
+else:
+    os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
+    CACHE_DF = pd.DataFrame(columns=['timestamp', 'chain', 'token_id', 'symbol', 'price'])
+    CACHE_DF.to_csv(CACHE_FILE, index=False)
+
+def get_price(token_symbol, date):
+
+    token_id = TOKEN_IDS[token_symbol]
+    timestamp = int(date.timestamp())
+
+    # Check the cache
+    if CACHE_DF[(CACHE_DF['timestamp'] == timestamp) & (CACHE_DF['token_id'] == token_id)].shape[0] > 0:
+        return CACHE_DF[(CACHE_DF['timestamp'] == timestamp) & (CACHE_DF['token_id'] == token_id)]['price'].values[0]
+
+    # Get the token price from the API
+    url = f"https://coins.llama.fi/prices/historical/{timestamp}/ethereum:{token_id}?searchWidth=4h"
+    print(url)
+    response = requests.get(url)
+    if response.status_code == 200:
+        price = response.json()['coins'][f'ethereum:{token_id}']['price']
+        # Add the result to the cache
+        CACHE_DF.loc[len(CACHE_DF)] = [timestamp, 'ethereum', token_id, token_symbol, price]
+        CACHE_DF.to_csv(CACHE_FILE, index=False)
+        return price
+    else:
+        print(f"Error: {response.status_code}")
+        print(f"URL: {url}")
+        return None
+
 
 def convert_to(date, usd_amount, token_symbol):
     date = datetime.strptime(date, '%Y-%m-%d')
-    # price = get_historical_price(token_symbol, date)
-    price = 1
+    price = get_price(token_symbol, date)
     return usd_amount / price
 
 
