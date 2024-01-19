@@ -130,8 +130,10 @@ def main():
                        layout="wide")
 
     st.title("Convex Wrappers")
-
-    check_data()
+    st.markdown("""
+**Note: This page is a quick and dirty implementation for now. It pulls the 
+data "just in time" on each page refresh.**
+""")
 
     df = pd.read_csv(WRAPPER_FILE)
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s')
@@ -149,6 +151,9 @@ def main():
     )
 
     st.altair_chart(chart)
+
+    check_data()
+
 
 
 if __name__ == "__main__":
