@@ -43,7 +43,7 @@ WRAPPERS = [
     },
 ]
 
-WEB3_HTTP_PROVIDER = 'https://mainnet.infura.io/v3/de9f566ad33b4fa4b553dd6bb9660ac3'
+WEB3_HTTP_PROVIDER = os.environ.get('WEB3_HTTP_PROVIDER')
 w3 = Web3(Web3.HTTPProvider(WEB3_HTTP_PROVIDER))
 
 
