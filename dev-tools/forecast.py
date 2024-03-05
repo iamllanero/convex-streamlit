@@ -20,7 +20,7 @@ def consolidate_data():
     consolidated = []
     end_round = rounds.get_last_round()
     for i in range(1, end_round+1):
-        file_path = f'{PRICE_DATA_DIR}/round_{i}_price.csv'
+        file_path = f'{PRICE_DATA_DIR}/round_{i:03d}_price.csv'
         print(f"Consolidating round {i} from {file_path}")
         with open(file_path, 'r') as f:
             # gauge,amount,token_symbol,timestamp,token,token_name,transaction_hash,block_hash,block_number,score
@@ -68,7 +68,7 @@ def consolidate_data():
 
 
 def forecast():
-    
+
     # Quick check on the current round
     current_round = rounds.get_current_round()
     if current_round is None:
@@ -76,19 +76,19 @@ def forecast():
         sys.exit()
 
     # Get data for current round
-    current_round_file = f"{PRICE_DATA_DIR}/round_{current_round}_price.csv"
+    current_round_file = f"{PRICE_DATA_DIR}/round_{current_round:03d}_price.csv"
     current_round_df = pd.read_csv(current_round_file)
 
     # Get data for last round
-    last_round_file = f"{PRICE_DATA_DIR}/round_{current_round-1}_price.csv"
+    last_round_file = f"{PRICE_DATA_DIR}/round_{current_round-1:03d}_price.csv"
     last_round_df = pd.read_csv(last_round_file)
 
     # Create the forecast dataframe
-    # forecast_df = pd.merge(last_round_df, current_round_df, on=['choice_index', 'token_symbol'], 
+    # forecast_df = pd.merge(last_round_df, current_round_df, on=['choice_index', 'token_symbol'],
     #                        suffixes=('_last', '_current'), how='outer')
-    forecast_df = pd.merge(current_round_df, last_round_df, on=['gauge', 'token_symbol'], 
+    forecast_df = pd.merge(current_round_df, last_round_df, on=['gauge', 'token_symbol'],
                            suffixes=('_current', '_last'), how='outer')
-    
+
     # Save to a file
     # forecast_df.to_csv(f"{FORECAST_OUTPUT_DIR}/tmp-forecast-1.csv", index=False)
 
@@ -132,21 +132,21 @@ def forecast():
     }, inplace=True)
     # max_block_number = int(forecast_df['block_number_current'].max())
     max_block_number = 0
-    forecast_file = f"{FORECAST_OUTPUT_DIR}/forecast-{current_round}-{datetime.datetime.now().strftime('%y%m%d%H%M')}.csv"
+    forecast_file = f"{FORECAST_OUTPUT_DIR}/forecast-{current_round:03}-{datetime.datetime.now().strftime('%y%m%d%H%M')}.csv"
     forecast_df.to_csv(forecast_file, index=False)
     # print(forecast_df[[
     #     'gauge',
-    #     # 'choice_index', 
-    #     # 'choice_current', 
-    #     'symbol', 
-    #     'amount', 
-    #     'usd', 
-    #     'per', 
-    #     'chng', 
-    #     'forecast', 
-    #     # 'choice_last', 
-    #     'amount_last', 
-    #     'usd_last', 
+    #     # 'choice_index',
+    #     # 'choice_current',
+    #     'symbol',
+    #     'amount',
+    #     'usd',
+    #     'per',
+    #     'chng',
+    #     'forecast',
+    #     # 'choice_last',
+    #     'amount_last',
+    #     'usd_last',
     #     'per_vote_last',
     #     ]])
 
