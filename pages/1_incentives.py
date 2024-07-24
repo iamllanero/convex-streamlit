@@ -127,9 +127,9 @@ def main():
         rounds_df = process_data(prices_df)
 
         # Debugging: Display the processed data
-        st.subheader("Debug: Processed Data")
-        st.write(rounds_df.dtypes)
-        st.write(rounds_df)
+        # st.subheader("Debug: Processed Data")
+        # st.write(rounds_df.dtypes)
+        # st.write(rounds_df)
 
         # Set up slider
         max_value = int(rounds_df["round"].max())
@@ -152,17 +152,17 @@ def main():
         for column in ["Incentives ($M)", "ETH (K)", "CRV (M)", "CVX (100K)"]:
             st.subheader(f"{column} Chart")
             chart_data = selected_df[["round", column]]
-            st.write(chart_data)  # Debug: Show data being used for the chart
+            # st.write(chart_data)  # Debug: Show data being used for the chart
             st.bar_chart(data=chart_data, x="round", y=column, height=250)
 
         st.subheader("Incentives per vlCVX")
         per_data = selected_df[["round", "Per ($)"]]
-        st.write(per_data)  # Debug: Show data being used for the chart
+        # st.write(per_data)  # Debug: Show data being used for the chart
         st.bar_chart(data=per_data, x="round", y="Per ($)", height=300)
 
         st.subheader("Score (M)")
         score_data = selected_df[["round", "Score (M)"]]
-        st.write(score_data)  # Debug: Show data being used for the chart
+        # st.write(score_data)  # Debug: Show data being used for the chart
         st.bar_chart(data=score_data, x="round", y="Score (M)", height=250)
 
     except Exception as e:
